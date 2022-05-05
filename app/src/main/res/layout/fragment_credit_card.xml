@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.CreditCardFragment">
+
+
+   <TextView
+       android:id="@+id/Name_on_card"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Name on card"
+       android:textColor="@color/black"
+       android:textSize="20dp"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       android:layout_margin="20dp"
+       />
+    <EditText
+        android:id="@+id/Edit_Name_on_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/Name_on_card"
+        app:layout_constraintTop_toBottomOf="@id/Name_on_card"
+        android:background="@drawable/edit_text"
+        android:hint="Asmaa"
+        android:padding="15dp"
+        android:layout_margin="20dp"
+        />
+    <TextView
+        android:id="@+id/Card_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Card number"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Edit_Name_on_card"
+        android:layout_margin="20dp"
+        />
+    <EditText
+        android:id="@+id/Edit_Card_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/Card_number"
+        app:layout_constraintTop_toBottomOf="@id/Card_number"
+        android:padding="15dp"
+        android:background="@drawable/edit_text"
+        android:layout_margin="20dp"
+        android:hint="5354 8253 **** ***"
+        />
+
+
+    <LinearLayout
+        android:id="@+id/Text_View"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Edit_Card_number"
+        >
+        <TextView
+            android:id="@+id/Expiry_date"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Expiry date"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:layout_weight=".5"
+            android:layout_margin="20dp"
+            />
+        <TextView
+            android:id="@+id/CVC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CVC"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:layout_weight=".5"
+            android:layout_margin="20dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Edit_View"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/Text_View"
+        app:layout_constraintTop_toBottomOf="@id/Text_View"
+        >
+        <EditText
+            android:id="@+id/Edit_Expiry_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            android:padding="15dp"
+            android:background="@drawable/edit_text"
+            android:layout_margin="20dp"
+            android:hint="20/12"
+            />
+
+        <EditText
+            android:id="@+id/Edit_CVC"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            android:padding="15dp"
+            android:background="@drawable/edit_text"
+            android:layout_margin="20dp"
+            android:hint="*** "
+            />
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Edit_View"
+        android:text="Pay Now"
+        android:background="@color/Dark_Blue"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:layout_margin="40dp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

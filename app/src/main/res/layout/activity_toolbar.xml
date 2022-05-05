@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/Dark_Blue"
+    app:navigationIcon="@drawable/ic_baseline_chevron_left_24"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+    app:title="Receipts"
+    app:titleMarginStart="100dp">
+
+</androidx.appcompat.widget.Toolbar>

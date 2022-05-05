@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="5dp"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        >
+        <ImageView
+            android:id="@+id/Image_Notification"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/user"
+            />
+
+        <TextView
+            android:id="@+id/Notification_Text_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Today is the last date to pay the rent for the apartment in nasr city "
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:layout_marginStart="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@id/Image_Notification"
+            />
+            <TextView
+                android:id="@+id/Notification_Text_Bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="T5 minutes ago "
+                android:textSize="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_toEndOf="@id/Image_Notification"
+                android:layout_below="@id/Notification_Text_top"
+                android:layout_alignStart="@id/Notification_Text_top"
+                />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
