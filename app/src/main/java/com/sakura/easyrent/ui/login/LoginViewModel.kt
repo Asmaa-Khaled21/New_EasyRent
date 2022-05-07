@@ -12,7 +12,7 @@ import com.sakura.easyrent.database.dao.UsersDao
 import com.sakura.easyrent.database.model.Post
 import kotlinx.coroutines.launch
 
-class LoginViewModel( private  val repository: Repository):BaseViewModel<Navigator>() {
+class LoginViewModel(private val repository: Repository = Repository) : BaseViewModel<Navigator>() {
 
     //Login
     val emailLogin = ObservableField<String>()
@@ -24,63 +24,68 @@ class LoginViewModel( private  val repository: Repository):BaseViewModel<Navigat
     // Register
     val userNameRegister = ObservableField<String>()
     val emailRegister = ObservableField<String>()
-    val firstNameRegister =ObservableField<String>()
-    val lastNameRegister =ObservableField<String>()
+    val firstNameRegister = ObservableField<String>()
+    val lastNameRegister = ObservableField<String>()
     val passwordRegister = ObservableField<String>()
     val nameErrorRegister = ObservableField<Boolean>()
     val userNameErrorRegister = ObservableField<Boolean>()
     val emailErrorRegister = ObservableField<Boolean>()
     val passwordErrorRegister = ObservableField<Boolean>()
+
     //////////////////////////////////////////////////////
-   // Login
-    fun login(){
+    // Login
+    fun login() {
         // 1- validate input
         // 2- show or hide errors if there
-        if(!validLogin())return
-        showLoading.value=true
-        firebaseAuth.signInWithEmailAndPassword(emailLogin.get().toString(),passwordLogin.get().toString())
-            .addOnCompleteListener( { task ->
-                if(task.isSuccessful){
+        if (!validLogin()) return
+        showLoading.value = true
+        firebaseAuth.signInWithEmailAndPassword(
+            emailLogin.get().toString(),
+            passwordLogin.get().toString()
+        )
+            .addOnCompleteListener({ task ->
+                if (task.isSuccessful) {
                     // retrieve User from db
                     // redirect to home
                     firebaseAuth.currentUser?.let { getUserData(it.uid) }
-                }else {
-                    showLoading.value=false
+                } else {
+                    showLoading.value = false
                     messageLiveData.value = task.exception?.localizedMessage
                 }
             })
     }
-    fun getUserData(userId:String){
-        UsersDao.getUserData(userId, OnCompleteListener {
-                task->
-            showLoading.value=false
-            if(task.isSuccessful){
+
+    fun getUserData(userId: String) {
+        UsersDao.getUserData(userId, OnCompleteListener { task ->
+            showLoading.value = false
+            if (task.isSuccessful) {
                 val user = task.result?.toObject(Post::class.java)// user retrevied
 //                Log.e("user",user?.email?:"")
-                Data.post= Post(2, "Asmaa" , "Asmaa" , "khaled" ,"Asmaa123@gmail.com")
+                Data.post = Post("2", "Asmaa", "Asmaa", "khaled", "Asmaa123@gmail.com")
                 navigator?.gotoMainActivity()
-            }else {
-                messageLiveData.value=task.exception?.localizedMessage
+            } else {
+                messageLiveData.value = task.exception?.localizedMessage
             }
 
 //            firebaseAuth.confirmPasswordReset()
         })
     }
-    fun validLogin():Boolean{
+
+    fun validLogin(): Boolean {
         var validlogin = true
-        if(emailLogin.get().isNullOrBlank()){
+        if (emailLogin.get().isNullOrBlank()) {
             // show email error
             emailErrorLogin.set(true)
-            validlogin=false
-        }else {
+            validlogin = false
+        } else {
             // hide email error
             emailErrorLogin.set(false)
         }
-        if(passwordLogin.get().isNullOrBlank() ||passwordLogin.get()?.length?:0 <6 ){
+        if (passwordLogin.get().isNullOrBlank() || passwordLogin.get()?.length ?: 0 < 6) {
             // show password error
             passwordErrorLogin.set(true)
-            validlogin=false
-        }else {
+            validlogin = false
+        } else {
             // hide password error
             passwordErrorLogin.set(false)
         }
@@ -90,77 +95,88 @@ class LoginViewModel( private  val repository: Repository):BaseViewModel<Navigat
     ////////////////////////////////////////////////////
     //Register
 
-    fun register(){
-        if(!validRegiter())return
+    fun register() {
+        if (!validRegiter()) return
         // validation is success
-        showLoading.value= true
-        firebaseAuth.createUserWithEmailAndPassword(emailRegister.get().toString(),passwordRegister.get().toString())
+        showLoading.value = true
+        firebaseAuth.createUserWithEmailAndPassword(
+            emailRegister.get().toString(),
+            passwordRegister.get().toString()
+        )
             .addOnCompleteListener(OnCompleteListener { task ->
-                if(task.isSuccessful){
-                        val firebaseUser = firebaseAuth.currentUser;
-                        val user =Post(
-                            firebaseUser?.uid!!.toInt(),
-                        userNameRegister.get(),emailRegister.get()
-                        ,firstNameRegister.get(),lastNameRegister.get())
-                        addUserToDB(user)
+                if (task.isSuccessful) {
+                    val firebaseUser = firebaseAuth.currentUser;
+                    val user = Post(
+                        // Fields:
+                        firebaseUser?.uid!!,
+                        userNameRegister.get(),
+                        emailRegister.get(),
+                        firstNameRegister.get(),
+                        lastNameRegister.get()
+                    )
+                    addUserToDB(user)
 
-                }else {
-                    showLoading.value=false
+                } else {
+                    showLoading.value = false
                     messageLiveData.value = task.exception?.localizedMessage
                 }
 
 
             })
     }
-    fun addUserToDB(post: Post){
+
+    fun addUserToDB(post: Post) {
         UsersDao.addUser(post, OnCompleteListener {
-            showLoading.value=false
-            if(it.isSuccessful){
+            showLoading.value = false
+            if (it.isSuccessful) {
                 // goto homePage
                 // messageLiveData.value ="user added in db"
-                Data.post=post
+                Data.post = post
                 navigator?.gotoMainActivity()
-            }else {
+            } else {
                 messageLiveData.value = it.exception?.localizedMessage
             }
-            pushPost(Post(2,"a","b"
-            ,"c","v"))
+            pushPost(
+                Post(
+                    "2", "a", "b", "c", "v"
+                )
+            )
         })
     }
-    fun validRegiter():Boolean{
+
+    fun validRegiter(): Boolean {
         var isValidRegiter = true;
-        if(userNameRegister.get().isNullOrBlank()){
+        if (userNameRegister.get().isNullOrBlank()) {
             nameErrorRegister.set(true)
-            isValidRegiter=false
-        }else {
+            isValidRegiter = false
+        } else {
             nameErrorRegister.set(false)
         }
-        if(emailRegister.get().isNullOrBlank()){
+        if (emailRegister.get().isNullOrBlank()) {
             emailErrorRegister.set(true)
-            isValidRegiter=false
-        }else {
+            isValidRegiter = false
+        } else {
             emailErrorRegister.set(false)
         }
-        if(userNameRegister.get().isNullOrBlank()){
+        if (userNameRegister.get().isNullOrBlank()) {
             userNameErrorRegister.set(true)
-            isValidRegiter=false
-        }else {
+            isValidRegiter = false
+        } else {
             userNameErrorRegister.set(false)
         }
-        if(passwordRegister.get().isNullOrBlank()){
+        if (passwordRegister.get().isNullOrBlank()) {
             passwordErrorRegister.set(true)
-            isValidRegiter=false
-        }else {
+            isValidRegiter = false
+        } else {
             passwordErrorRegister.set(false)
         }
         return isValidRegiter
     }
 
-    fun pushPost(post: Post)
-    {
+    fun pushPost(post: Post) {
         viewModelScope.launch {
             val response = repository.pushPost(post)
-            myResponse.value =response
+            myResponse.value = response
         }
     }
 }

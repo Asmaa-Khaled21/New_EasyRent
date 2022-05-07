@@ -22,7 +22,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() ,Navi
             viewDataBinding.viewModel = viewModel
             viewModel.navigator =this
 
-          val myPost = Post(2, "Asmaa" , "Asmaa" , "khaled" ,"Asmaa123@gmail.com")
+          val myPost = Post("2", "Asmaa" , "Asmaa" , "khaled" ,"Asmaa123@gmail.com","testPass")
           viewModel.pushPost(myPost)
 
             singUp.setOnClickListener {

@@ -42,7 +42,8 @@ abstract class BaseActivity<DB:ViewDataBinding,VM:BaseViewModel<*>>:AppCompatAct
                 Log.d("Main", response.message());
 
             } else{
-                Toast.makeText(this,response.code(),Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this,response.code().toString(),Toast.LENGTH_SHORT).show()
+                Log.d("Main","API UNSuccessful -> ${response.message()} && Code(${response.code()})")
             }  })
     }
     abstract fun getLayoutId():Int
