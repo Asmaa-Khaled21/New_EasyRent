@@ -11,9 +11,9 @@ import com.sakura.easyrent.base.BaseActivity
 import com.sakura.easyrent.ui.main.MainActivity
 import com.sakura.easyrent.R
 import com.sakura.easyrent.databinding.ActivityLoginBinding
-
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.*
+
 class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() ,Navigator{
       @RequiresApi(Build.VERSION_CODES.M)
         override fun onCreate(savedInstanceState: Bundle?) {

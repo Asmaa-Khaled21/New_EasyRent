@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+      <data>
+      <variable
+        name="item"
+        type="com.sakura.easyrent.fragments.receiptsfragment.ReceiptsItem.Item" />
+      </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="30dp"
+        android:layout_margin="10dp">
+
+        <LinearLayout
+            android:id="@+id/line1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="fill"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/House_NUMBER"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{item.houseNumber}"
+                android:textColor="@color/black"
+                android:layout_weight=".5"
+                android:layout_marginStart="5dp"
+                android:drawableStart="@drawable/ic_house_number"
+                />
+            <TextView
+                android:id="@+id/GBS"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{item.gbs}"
+                android:textColor="@color/black"
+                android:layout_weight=".5"
+                android:layout_marginStart="5dp"
+                android:drawableStart="@drawable/ic_gps"/>
+
+        </LinearLayout>
+
+            <TextView
+                android:id="@+id/money"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{item.done}"
+                android:textColor="@color/black"
+                android:layout_weight=".5"
+                app:layout_constraintTop_toBottomOf="@id/line1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:paddingTop="10dp"
+                />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

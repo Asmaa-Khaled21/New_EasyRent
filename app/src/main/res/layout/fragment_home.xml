@@ -1,85 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.HomeFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-        <ImageView
-            android:id="@+id/circle1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:scaleType="fitXY"
-            android:src="@drawable/ic_circle1"
-            />
-        <ImageView
-            android:id="@+id/circle2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:scaleType="fitXY"
-            android:src="@drawable/ic_circle2"
-            />
-        <ImageView
-            android:id="@+id/user"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/circle1"
-            app:layout_constraintTop_toTopOf="@id/circle1"
-            android:src="@drawable/user"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="20dp"
-            />
-        <TextView
-            android:id="@+id/Name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@id/user"
-            app:layout_constraintTop_toTopOf="@id/user"
-            android:text="Welcome  Asmaa ,"
-            android:textColor="@color/white"
-            android:paddingStart="20dp"
-            android:textSize="20dp"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/Name"
-            app:layout_constraintTop_toBottomOf="@id/Name"
-            android:textColor="@color/white"
-            android:text="Verify your rents and payments."
-            android:paddingStart="20dp"
-            android:paddingTop="10dp"
-            android:textSize="18dp"
-            />
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="@id/circle1"
-            app:layout_constraintTop_toTopOf="@id/circle1"
-            android:paddingEnd="40dp"
-            android:src="@drawable/ic_notificationbar"
-            android:paddingTop="15dp"
-            />
+        <data>
+               <variable
+                   name="viewModel"
+                   type="com.sakura.easyrent.fragments.homefragment.HomeViewModel" />
+        </data>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/RecycleView_Ajar"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:listitem="@layout/item_contact"
-            app:layout_constraintTop_toBottomOf="@id/circle2"
-            />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_height="match_parent"
+            tools:context=".fragments.homefragment.HomeFragment">
+
+                <ImageView
+                    android:id="@+id/circle1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_circle1" />
+
+                <ImageView
+                    android:id="@+id/circle2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_circle2" />
+
+                <ImageView
+                    android:id="@+id/user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@id/circle1"
+                    app:layout_constraintTop_toTopOf="@id/circle1"
+                    android:src="@drawable/user"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="20dp" />
+
+                <TextView
+                    android:id="@+id/Name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toEndOf="@id/user"
+                    app:layout_constraintTop_toTopOf="@id/user"
+                    android:text="Welcome  Asmaa ,"
+                    android:textColor="@color/white"
+                    android:paddingStart="20dp"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@id/Name"
+                    app:layout_constraintTop_toBottomOf="@id/Name"
+                    android:textColor="@color/white"
+                    android:text="Verify your rents and payments."
+                    android:paddingStart="20dp"
+                    android:paddingTop="10dp"
+                    android:textSize="18dp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="@id/circle1"
+                    app:layout_constraintTop_toTopOf="@id/circle1"
+                    android:paddingEnd="40dp"
+                    android:src="@drawable/ic_notificationbar"
+                    android:paddingTop="15dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/RecycleView_Ajar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:listitem="@layout/layout_home"
+                    app:layout_constraintTop_toBottomOf="@id/circle2" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
 
 

@@ -1,12 +1,11 @@
 package com.sakura.easyrent.ui.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.sakura.easyrent.fragments.HomeFragment
+import com.sakura.easyrent.fragments.homefragment.HomeFragment
 import com.sakura.easyrent.fragments.NotificationFragment
-import com.sakura.easyrent.fragments.ReceiptsFragment
+import com.sakura.easyrent.fragments.receiptsfragment.ReceiptsFragment
 import com.sakura.easyrent.fragments.SettingsFragment
 import com.sakura.easyrent.R
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
