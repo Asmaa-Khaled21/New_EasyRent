@@ -4,14 +4,14 @@ package com.sakura.easyrent.database.dao
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.firestore.DocumentSnapshot
 import com.sakura.easyrent.database.DataBase
-import com.sakura.easyrent.database.model.User
+import com.sakura.easyrent.database.model.Post
 
 class UsersDao {
     companion object{
-        fun addUser(user: User, onCompleteListener: OnCompleteListener<Void>){
+        fun addUser(post: Post, onCompleteListener: OnCompleteListener<Void>){
             DataBase.getUsersCollection()
-                .document(user.id?:"")
-                .set(user)
+                .document((post.id?:"") as String)
+                .set(post)
                 .addOnCompleteListener(onCompleteListener)
         }
         fun getUserData(userId:String,onCompleteListener: OnCompleteListener<DocumentSnapshot>){

@@ -1,20 +1,18 @@
 package com.sakura.easyrent.base
 
-import android.app.AlertDialog
 import android.app.ProgressDialog
 import android.content.DialogInterface
 import android.os.Bundle
-import android.os.Message
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
-import com.google.android.material.resources.CancelableFontCallback
-import java.nio.file.attribute.AclEntry
+
 
 abstract class BaseActivity<DB:ViewDataBinding,VM:BaseViewModel<*>>:AppCompatActivity() {
+
 
     lateinit var viewDataBinding: DB
     lateinit var viewModel: VM
@@ -30,11 +28,22 @@ abstract class BaseActivity<DB:ViewDataBinding,VM:BaseViewModel<*>>:AppCompatAct
                     dialog.dismiss()
                 })
         })
+
         viewModel.showLoading.observe(this, Observer{show->
             if(show)
                 showProgressDialoge("Loading...")
             else hideProgressDialog()
         })
+        viewModel.myResponse.observe(this, Observer { response ->
+            if (response.isSuccessful)
+            {
+                Log.d("Main", response.body().toString());
+                Log.d("Main", response.code().toString());
+                Log.d("Main", response.message());
+
+            } else{
+                Toast.makeText(this,response.code(),Toast.LENGTH_SHORT).show()
+            }  })
     }
     abstract fun getLayoutId():Int
     abstract fun initializeViewModel():VM

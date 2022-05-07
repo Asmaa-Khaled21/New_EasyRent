@@ -5,21 +5,25 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import androidx.annotation.RequiresApi
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.sakura.easyrent.base.BaseActivity
-import com.sakura.easyrent.ui.main.MainActivity
 import com.sakura.easyrent.R
+import com.sakura.easyrent.base.BaseActivity
+import com.sakura.easyrent.database.model.Post
 import com.sakura.easyrent.databinding.ActivityLoginBinding
+import com.sakura.easyrent.ui.main.MainActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() ,Navigator{
       @RequiresApi(Build.VERSION_CODES.M)
+
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             viewDataBinding.viewModel = viewModel
             viewModel.navigator =this
+
+          val myPost = Post(2, "Asmaa" , "Asmaa" , "khaled" ,"Asmaa123@gmail.com")
+          viewModel.pushPost(myPost)
 
             singUp.setOnClickListener {
                 singUp.background = resources.getDrawable(R.drawable.switch_trcks,null)
@@ -54,5 +58,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() ,Navi
         val intent = Intent(this,MainActivity::class.java)
         startActivity(intent)
     }
+
 
     }

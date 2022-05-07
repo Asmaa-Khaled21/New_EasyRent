@@ -1,15 +1,19 @@
 package com.sakura.easyrent.ui.login
 
 import androidx.databinding.ObservableField
+import androidx.lifecycle.viewModelScope
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.sakura.easyrent.Data
+import com.sakura.easyrent.api.Repository
 import com.sakura.easyrent.base.BaseViewModel
 import com.sakura.easyrent.database.dao.UsersDao
-import com.sakura.easyrent.database.model.User
+import com.sakura.easyrent.database.model.Post
+import kotlinx.coroutines.launch
 
-class LoginViewModel:BaseViewModel<Navigator>() {
+class LoginViewModel( private  val repository: Repository):BaseViewModel<Navigator>() {
+
     //Login
     val emailLogin = ObservableField<String>()
     val passwordLogin = ObservableField<String>()
@@ -51,9 +55,9 @@ class LoginViewModel:BaseViewModel<Navigator>() {
                 task->
             showLoading.value=false
             if(task.isSuccessful){
-                val user = task.result?.toObject(User::class.java)// user retrevied
+                val user = task.result?.toObject(Post::class.java)// user retrevied
 //                Log.e("user",user?.email?:"")
-                Data.user=com.sakura.easyrent.database.model.User()
+                Data.post= Post(2, "Asmaa" , "Asmaa" , "khaled" ,"Asmaa123@gmail.com")
                 navigator?.gotoMainActivity()
             }else {
                 messageLiveData.value=task.exception?.localizedMessage
@@ -94,27 +98,33 @@ class LoginViewModel:BaseViewModel<Navigator>() {
             .addOnCompleteListener(OnCompleteListener { task ->
                 if(task.isSuccessful){
                         val firebaseUser = firebaseAuth.currentUser;
-                        val user =User(firebaseUser?.uid,
+                        val user =Post(
+                            firebaseUser?.uid!!.toInt(),
                         userNameRegister.get(),emailRegister.get()
                         ,firstNameRegister.get(),lastNameRegister.get())
                         addUserToDB(user)
+
                 }else {
                     showLoading.value=false
                     messageLiveData.value = task.exception?.localizedMessage
-                }})
-    }
+                }
 
-    fun addUserToDB(user: User){
-        UsersDao.addUser(user, OnCompleteListener {
+
+            })
+    }
+    fun addUserToDB(post: Post){
+        UsersDao.addUser(post, OnCompleteListener {
             showLoading.value=false
             if(it.isSuccessful){
                 // goto homePage
                 // messageLiveData.value ="user added in db"
-                Data.user=user
+                Data.post=post
                 navigator?.gotoMainActivity()
             }else {
                 messageLiveData.value = it.exception?.localizedMessage
             }
+            pushPost(Post(2,"a","b"
+            ,"c","v"))
         })
     }
     fun validRegiter():Boolean{
@@ -144,5 +154,13 @@ class LoginViewModel:BaseViewModel<Navigator>() {
             passwordErrorRegister.set(false)
         }
         return isValidRegiter
+    }
+
+    fun pushPost(post: Post)
+    {
+        viewModelScope.launch {
+            val response = repository.pushPost(post)
+            myResponse.value =response
+        }
     }
 }

@@ -1,7 +1,7 @@
 package com.sakura.easyrent
 
-import com.sakura.easyrent.database.model.User
+import com.sakura.easyrent.database.model.Post
 
 object Data {
-    var user: User?=null
+    var post: Post?=null
 }
