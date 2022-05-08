@@ -3,4 +3,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="log_in">Log In</string>
+    <string name="user_name_warning">Please enter your user name</string>
+    <string name="email_warning">Please enter your email address</string>
+    <string name="password_warning">Please enter your password</string>
+    <string name="pass_length_warning">Your password must be at least 6 charters</string>
 </resources>

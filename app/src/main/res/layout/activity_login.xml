@@ -112,7 +112,6 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="textPersonName|textEmailAddress"
-                        android:text="@={viewModel.emailLogin}"
                         android:textColor="@color/black"
                         android:textSize="13sp"
                         android:textStyle="normal" />
@@ -126,6 +125,7 @@
                     android:textAlignment="textStart"
                     android:textColor="@color/Red"
                     android:textSize="10sp"
+                    android:visibility="gone"
                     android:textStyle="normal" />
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -148,7 +148,6 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="textPassword"
-                        android:text="@={viewModel.passwordLogin}"
                         android:textColor="@color/black"
                         android:textSize="13sp"
                         android:textStyle="normal" />
@@ -162,6 +161,7 @@
                     android:text=" Please Enter Vaild Password "
                     android:textAlignment="textStart"
                     android:textColor="@color/Red"
+                    android:visibility="gone"
                     android:textSize="10sp"
                     android:textStyle="normal"/>
 
@@ -176,7 +176,7 @@
                     android:textStyle="normal" />
 
                 <Button
-                    android:id="@+id/singIn"
+                    android:id="@+id/signIn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -184,7 +184,6 @@
                     android:layout_marginEnd="24dp"
                     android:elevation="15dp"
                     android:gravity="center"
-                    android:onClick="@{() -> viewModel.login()}"
                     android:text="@string/log_in"
                     android:textAllCaps="false"
                     android:textColor="@color/textColor"
@@ -224,7 +223,6 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="textPersonName"
-                        android:text="@={viewModel.userNameRegister}"
                         android:textColor="@color/black"
                         android:textSize="13sp"
                         android:textStyle="normal" />
@@ -238,7 +236,8 @@
                     android:textAlignment="textStart"
                     android:textColor="@color/Red"
                     android:textSize="10sp"
-                    android:textStyle="normal" />
+                    android:textStyle="normal"
+                    android:visibility="gone"/>
 
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
@@ -259,7 +258,6 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="textEmailAddress"
-                        android:text="@={viewModel.emailRegister}"
                         android:textColor="@color/black"
                         android:textSize="13sp"
                         android:textStyle="normal" />
@@ -284,7 +282,6 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="textPersonName"
-                        android:text="@={viewModel.firstNameRegister}"
                         android:textColor="@color/black"
                         android:textSize="13sp"
                         android:textStyle="normal" />
@@ -309,7 +306,6 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="textPersonName"
-                        android:text="@={viewModel.lastNameRegister}"
                         android:textColor="@color/black"
                         android:textSize="13sp"
                         android:textStyle="normal" />
@@ -335,7 +331,6 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="textPassword"
-                        android:text="@={viewModel.passwordRegister}"
                         android:textColor="@color/black"
                         android:textSize="13sp"
                         android:textStyle="normal" />
@@ -374,7 +369,6 @@
                     android:layout_marginEnd="24dp"
                     android:elevation="15dp"
                     android:gravity="center"
-                    android:onClick="@{() -> viewModel.register()}"
                     android:text="@string/log_in"
                     android:textAllCaps="false"
                     android:textColor="@color/textColor"
