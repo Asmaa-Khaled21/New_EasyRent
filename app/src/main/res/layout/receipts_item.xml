@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+      <data>
+      <variable
+        name="item"
+        type="com.sakura.easyrent.fragments.receiptsfragment.ReceiptsItem" />
+      </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <TextView
+            android:id="@+id/Contract_Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{item.contractName}"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            android:textStyle="normal|bold"
+            android:textSize="20sp"
+            />
+        <LinearLayout
+            android:id="@+id/line1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/Contract_Name"
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+
+            <TextView
+                android:id="@+id/Price"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{item.price}"
+                android:textColor="@color/black"
+                android:layout_weight=".5"
+                android:drawableStart="@drawable/ic_house_number"
+                android:drawablePadding="5dp"
+                />
+            <TextView
+                android:id="@+id/Payment_method"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{item.payment_Method}"
+                android:textColor="@color/black"
+                android:layout_weight=".5"
+                android:drawableStart="@drawable/ic_clock"
+                android:drawablePadding="5dp"/>
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/Payment_Sucsses"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{item.payment_Sucsses}"
+            android:textColor="@color/black"
+            android:layout_weight=".5"
+            android:drawablePadding="5dp"
+            app:layout_constraintTop_toBottomOf="@id/line1"
+            app:layout_constraintStart_toStartOf="parent"
+
+            />
+        <LinearLayout
+            android:id="@+id/line2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="fill"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/Payment_Sucsses"
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+
+            <TextView
+                android:id="@+id/Payment_Date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{item.payment_Day}"
+                android:textColor="@color/black"
+                android:layout_weight=".5"
+                android:drawableStart="@drawable/ic_clock"
+                android:drawablePadding="5dp"
+                />
+            <TextView
+                android:id="@+id/Payment_Time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{item.payment_Time}"
+                android:textColor="@color/black"
+                android:layout_weight=".5"
+                android:drawableStart="@drawable/ic_clock"
+                android:drawablePadding="5dp"/>
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

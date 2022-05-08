@@ -53,7 +53,8 @@
                     android:text="Account"
                     android:textColor="@color/black"
                     android:textSize="30sp"
-                    android:textStyle="bold|normal" />
+                    android:textStyle="bold|normal"
+                    />
 
                 <TextView
                     android:id="@+id/Edit_Profile"

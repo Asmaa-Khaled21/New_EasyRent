@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.sakura.easyrent.R
-import com.sakura.easyrent.databinding.FragmentHomeBinding
 import com.sakura.easyrent.databinding.LayoutHomeBinding
 
 class HomeAdapter (var homeList:List<HomeItem>):
@@ -22,24 +21,6 @@ class HomeAdapter (var homeList:List<HomeItem>):
         val homeItem=homeList?.get(position)
         holder.bind(homeItem!!)
     }
-    //{
-//        val item=items.get(position)
-//
-//        holder.oneText.text= item.oneText
-//        holder.twoText.text = item.twoText
-//        holder.threeText.text = item.threeText
-//        holder.fourText.text=item.fourText
-//        holder.fiveText.text = item.fiveText
-
-//        onItemClickListener?.let {
-//
-//        }
-//       if (onItemClickListener!=null){
-//            holder.sixItem.setOnClickListener{
-//                 onItemClickListener?.onItemClick(position,item)
-//            }
-//        }
-//    }
 
     override fun getItemCount(): Int {
         return homeList.size

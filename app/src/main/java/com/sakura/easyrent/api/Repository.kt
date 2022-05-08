@@ -10,5 +10,4 @@ object Repository {
         return RetrofitInstance.api.pushPost(post)
     }
 
-
 }
