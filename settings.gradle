@@ -1,2 +1,28 @@
+// Method(PluginManagement):
+pluginManagement {
+    // Method(Repositories):
+    repositories {
+        // Repositories:
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+// Method(DependencyResolutionManagement):
+dependencyResolutionManagement {
+    // Setting:
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    // Method(Repositories):
+    repositories {
+        // Repositories:
+        google()
+        mavenCentral()
+        //noinspection JcenterRepositoryObsolete
+        jcenter()
+        maven { url 'https://jitpack.io' }
+    }
+}
+// Including:
 include ':app'
+// Naming:
 rootProject.name = "Easy Rent"
