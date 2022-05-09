@@ -7,18 +7,19 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sakura.easyrent.databinding.LayoutHomeBinding
 import com.sakura.easyrent.model.Contracts
 
-class HomeAdapter(private val context: Context, private val items: ArrayList<Contracts>) : RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
+
+class ReceiptsAdapter(private val context: Context, private val items: ArrayList<Contracts>) : RecyclerView.Adapter<ReceiptsAdapter.ReceiptsViewHolder>() {
 
     // Adapter:
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReceiptsViewHolder{
         // Initializing:
         val inflater = LayoutInflater.from(context)
         val binding = LayoutHomeBinding.inflate(inflater, parent, false)
         // Returning:
-        return HomeViewHolder(binding)
+        return ReceiptsViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ReceiptsViewHolder, position: Int) {
         // Initializing:
         val item = items[position]
     }
@@ -26,5 +27,5 @@ class HomeAdapter(private val context: Context, private val items: ArrayList<Con
     override fun getItemCount(): Int = items.size
 
     // Holder:
-    inner class HomeViewHolder(val binding: LayoutHomeBinding) : RecyclerView.ViewHolder(binding.root)
+    inner class ReceiptsViewHolder(val binding: LayoutHomeBinding) : RecyclerView.ViewHolder(binding.root)
 }

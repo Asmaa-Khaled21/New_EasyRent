@@ -7,6 +7,19 @@
     android:padding="30dp"
     android:layout_margin="10dp">
 
+    <TextView
+        android:id="@+id/contract_holder_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="contract_holder_name"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="normal|bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:id="@+id/line1"
         android:layout_width="match_parent"
@@ -14,41 +27,28 @@
         android:orientation="horizontal"
         android:gravity="fill"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/contract_holder_name"
         android:padding="10dp">
 
-        <ImageView
-            android:id="@+id/image_House_NUMBER"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_house_number"
-            android:textColor="@color/black"
-            android:layout_weight=".1" />
-
         <TextView
-            android:id="@+id/House_NUMBER"
+            android:id="@+id/unit"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@{homeItem.houseNumber}"
+            android:text="unit"
             android:textColor="@color/black"
             android:layout_weight=".5"
             android:layout_marginStart="5dp"
+            android:drawableStart="@drawable/ic_house_number"
+            android:drawablePadding="10dp"
             />
 
-        <ImageView
-            android:id="@+id/image_Day"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_day"
-            android:layout_weight=".1" />
-
         <TextView
-            android:id="@+id/Day"
+            android:id="@+id/rent_frequency"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:text="@{homeItem.Day}"
+            android:text="rent_frequency"
             android:layout_weight=".5"
             android:drawablePadding="10dp"
             android:layout_marginStart="5dp" />
@@ -62,40 +62,28 @@
         app:layout_constraintEnd_toEndOf="@id/line1"
         app:layout_constraintTop_toBottomOf="@+id/line1"
         android:padding="10dp">
-
-        <ImageView
-            android:id="@+id/image_GBS"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_gps"
-            android:layout_weight=".1"
-            android:src="@drawable/ic_gps" />
-
         <TextView
-            android:id="@+id/GBS"
+            android:id="@+id/date_from"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@{homeItem.gbs}"
+            android:text="date_from"
             android:textColor="@color/black"
             android:layout_weight=".5"
-            android:layout_marginStart="5dp" />
-
-        <ImageView
-            android:id="@+id/image_clock"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
             android:drawableStart="@drawable/ic_clock"
-            android:layout_weight=".1"
-            android:src="@drawable/ic_clock" />
+            android:drawablePadding="10dp"
+            />
 
         <TextView
-            android:id="@+id/clock"
+            android:id="@+id/date_to"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@{homeItem.clock}"
+            android:text="date_to"
             android:textColor="@color/black"
             android:layout_weight=".5"
-            android:layout_marginStart="5dp" />
+            android:layout_marginStart="5dp"
+            android:drawableStart="@drawable/ic_clock"
+            android:drawablePadding="10dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -107,10 +95,10 @@
         android:padding="10dp">
 
         <TextView
-            android:id="@+id/money"
+            android:id="@+id/rent_cost"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@{homeItem.money}"
+            android:text="rent_cost"
             android:textColor="@color/black"
             android:layout_weight=".5" />
 
@@ -118,7 +106,7 @@
             android:id="@+id/Button_Bay"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@{homeItem.buttonBay}"
+            android:text="pay"
             android:textColor="@color/white"
             android:layout_weight=".3"
             android:layout_marginEnd="10dp"
