@@ -26,4 +26,5 @@ class ApplicationModule {
 
     // Method(SPManager):
     @Provides @Singleton fun provideSPManager(@ApplicationContext context: Context): SPManager = SPManager(context)
+
 }

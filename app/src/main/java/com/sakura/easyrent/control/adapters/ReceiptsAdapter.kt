@@ -27,6 +27,16 @@ class ReceiptsAdapter(
     override fun onBindViewHolder(holder: ReceiptsViewHolder, position: Int) {
         // Initializing:
         val receipt = receipts[position]
+        // Applying:
+        holder.binding.apply {
+            // Setting:
+            contractHolderName.text = receipt.contractHolderName
+            dateFrom.text = receipt.dateFrom
+            dateTo.text = receipt.dateTo
+            rentCost.text = receipt.rentCost.toString()
+            rentFrequency.text = receipt.rentFrequency
+            unit.text = receipt.unit.toString()
+        }
     }
 
     override fun getItemCount(): Int = receipts.size
