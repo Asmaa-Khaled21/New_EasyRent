@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.sakura.easyrent.databinding.NotificationItemBinding
+import com.sakura.easyrent.databinding.NotificationItemViewBinding
 import com.sakura.easyrent.model.NotificationItem
 
 class NotificationAdapter(private val context: Context, private val notifications: ArrayList<NotificationItem>) : RecyclerView.Adapter<NotificationAdapter.NotificationViewHolder>() {
@@ -13,7 +13,7 @@ class NotificationAdapter(private val context: Context, private val notification
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotificationViewHolder {
         // Initializing:
         val inflater = LayoutInflater.from(context)
-        val binding = NotificationItemBinding.inflate(inflater, parent, false)
+        val binding = NotificationItemViewBinding.inflate(inflater, parent, false)
         // Returning:
         return NotificationViewHolder(binding)
     }
@@ -26,5 +26,5 @@ class NotificationAdapter(private val context: Context, private val notification
     override fun getItemCount(): Int = notifications.size
 
     // Holder:
-    inner class NotificationViewHolder(val binding: NotificationItemBinding) : RecyclerView.ViewHolder(binding.root)
+    inner class NotificationViewHolder(val binding: NotificationItemViewBinding) : RecyclerView.ViewHolder(binding.root)
 }

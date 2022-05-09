@@ -386,12 +386,14 @@
                 android:layout_marginBottom="16dp"
                 android:gravity="center"
                 android:text="OR"
+                android:visibility="gone"
                 android:textAlignment="center"
                 android:textColor="#474646"
                 android:textSize="18sp"
                 android:textStyle="normal" />
 
             <LinearLayout
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
