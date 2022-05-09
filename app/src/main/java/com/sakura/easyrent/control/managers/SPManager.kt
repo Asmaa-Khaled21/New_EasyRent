@@ -14,6 +14,7 @@ class SPManager(context: Context) {
     companion object {
 
         // Fields(Keys):
+        const val USER_NAME: String = "USER_NAME"
         const val ACCESS_TOKEN: String = "ACCESS_TOKEN"
         const val REFRESH_TOKEN: String = "REFRESH_TOKEN"
     }

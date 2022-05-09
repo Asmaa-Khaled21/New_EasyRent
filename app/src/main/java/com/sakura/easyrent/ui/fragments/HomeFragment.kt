@@ -13,8 +13,10 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
 
-    // Fields:
+    // Fields(Variables):
     private var _binding: FragmentHomeBinding? = null
+
+    // Fields(Values):
     private val binding: FragmentHomeBinding get() = _binding!!
     private val model: MainViewModel by lazy { ViewModelProvider(this)[MainViewModel::class.java] }
 
