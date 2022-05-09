@@ -1,20 +1,36 @@
 package com.sakura.easyrent.ui.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import com.sakura.easyrent.control.adapters.ContractsAdapter
+import com.sakura.easyrent.control.managers.SPManager
+import com.sakura.easyrent.control.utils.APIUtils
 import com.sakura.easyrent.databinding.FragmentReceiptsBinding
+import com.sakura.easyrent.ui.activitys.main.MainActivityIntentions
+import com.sakura.easyrent.ui.activitys.main.MainActivityStates
 import com.sakura.easyrent.ui.activitys.main.MainViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class ReceiptsFragment : Fragment() {
 
     // Fields:
     private var _binding: FragmentReceiptsBinding? = null
     private val binding: FragmentReceiptsBinding get() = _binding!!
     private val model: MainViewModel by lazy { ViewModelProvider(this)[MainViewModel::class.java] }
+
+    // Fields(Adapters):
+    private lateinit var adapter: ContractsAdapter
+
+    // Fields(Managers):
+    @Inject lateinit var manager: SPManager
 
     // Companion:
     companion object {
@@ -35,7 +51,23 @@ class ReceiptsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) { // Here we will do our work.
         // Super:
         super.onViewCreated(view, savedInstanceState)
-        // Initializing:
+        // Initializing(UI):
+        progressBar()
+        // Rendering:
+        lifecycleScope.launchWhenCreated { render() }
+    }
+
+    // Method(Render)
+    private suspend fun render() {}
+
+    // Method(ContractsState):
+    private fun contractsState(state: MainActivityStates.ContractsState) {}
+
+    // Method(ProgressBar):
+    private fun progressBar(show: Boolean = true) {
+        // Visibility:
+        binding.receiptsProgressBar.visibility = if (show) View.VISIBLE else View.GONE
+        binding.receiptsRecyclerView.visibility = if (show) View.GONE else View.VISIBLE
     }
 
     // Method(OnDestroyView):

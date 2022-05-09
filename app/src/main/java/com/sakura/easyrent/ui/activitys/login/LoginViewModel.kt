@@ -36,7 +36,7 @@ class LoginViewModel @Inject constructor(private val repository: APIRepository) 
     companion object {
 
         // Tags:
-        const val TAG: String = "HomeViewModel"
+        const val TAG: String = "LoginViewModel"
     }
 
     /** [intentionsProcessing] this kotlin function is used to process any sent intention throw any channels */
