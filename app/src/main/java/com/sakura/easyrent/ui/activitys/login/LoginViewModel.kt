@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sakura.easyrent.control.repositories.APIRepository
+import com.sakura.easyrent.model.AccessToken
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.channels.Channel
@@ -72,33 +73,31 @@ class LoginViewModel @Inject constructor(private val repository: APIRepository) 
     }
 
     // Method(OnRegister):
-    private fun onRegister(intention: LoginActivityIntentions.Register) {
-        // Lunching:
-        viewModelScope.launch {
-            // Requesting:
-            request(repository.register(intention.user)) {
-                // Emitting:
-                _states.emit(LoginActivityStates.RegisterState(true))
-            }
-        }
-    }
+    private suspend fun onRegister(intention: LoginActivityIntentions.Register) = request(
+        // Fields(Request):
+        intention,
+        repository.register(intention.user)
+    )
 
     // Method(OnLogin):
-    private fun onLogin(intention: LoginActivityIntentions.Login) {
-        // Lunching:
-        viewModelScope.launch {
-            // Requesting:
-            request(repository.login(intention.user)) {
-                // Emitting:
-                _states.emit(LoginActivityStates.LoginState(true, it))
-            }
-        }
-    }
+    private suspend fun onLogin(intention: LoginActivityIntentions.Login) = request(
+        // Fields(Request):
+        intention,
+        repository.login(intention.user)
+    )
 
     // Method(Request):
-    private suspend fun <T> request(response: Response<T>, onSuccess: suspend (response: T) -> Unit) {
+    private suspend fun <T> request(intention: LoginActivityIntentions, response: Response<T>) {
         // Checking:
-        if (response.isSuccessful && response.body() != null) onSuccess(response.body()!!)
-        else _states.emit(LoginActivityStates.FailureState(response.toString(), null))
+        if (response.isSuccessful && response.body() != null) {
+            // Initializing:
+            val body = response.body()!!
+            // Checking:
+            when (intention) {
+                // Emitting:
+                is LoginActivityIntentions.Register -> _states.emit(LoginActivityStates.RegisterState(true, intention.user))
+                is LoginActivityIntentions.Login -> _states.emit(LoginActivityStates.LoginState(true, body as AccessToken))
+            }
+        } else _states.emit(LoginActivityStates.FailureState(response.toString(), null))
     }
 }

@@ -12,20 +12,23 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.sakura.easyrent.R
+import com.sakura.easyrent.control.managers.SPManager
 import com.sakura.easyrent.databinding.ActivityLoginBinding
 import com.sakura.easyrent.model.User
 import com.sakura.easyrent.model.states.ValidationStates
 import com.sakura.easyrent.ui.activitys.main.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
 
-    // Fields:
+    // Fields(Private):
     private val binding: ActivityLoginBinding by lazy { ActivityLoginBinding.inflate(layoutInflater) }
-
-    @Suppress("unused")
     private val model: LoginViewModel by lazy { ViewModelProvider(this)[LoginViewModel::class.java] }
+
+    // Fields(Public):
+    @Inject lateinit var manager: SPManager
 
     // Companion:
     companion object {
@@ -40,10 +43,12 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root) // Setting content to the root of binding.
         // Rendering:
         render()
-        // Developing:
+        // Developing(UI):
         binding.singUp.setOnClickListener(::onSignUp)
         binding.logIn.setOnClickListener(::onLogin)
+        // Developing:
         binding.signIn.setOnClickListener(::onSignIn)
+        binding.Register.setOnClickListener(::onSignIn)
     }
 
     // Method(Render):
@@ -55,16 +60,35 @@ class LoginActivity : AppCompatActivity() {
                 // Checking:
                 when (it) {
                     // Developing:
-                    is LoginActivityStates.RegisterState -> if (it.status) onSignSuccess()
-                    is LoginActivityStates.LoginState -> if (it.status) onSignSuccess()
+                    is LoginActivityStates.RegisterState -> onRegisterState(it)
+                    is LoginActivityStates.LoginState -> onLoginState(it)
                     is LoginActivityStates.FailureState -> Log.e(TAG, "render: ${it.message}", it.exception)
                 }
             }
         }
     }
 
+    // Method(OnRegisterState):
+    private suspend fun onRegisterState(state: LoginActivityStates.RegisterState) {
+        // Checking:
+        if (state.status && User.validate(this, state.user) is ValidationStates.Success) {
+            // Login: automatic login.
+            model.channel.send(LoginActivityIntentions.Login(state.user))
+        }
+    }
+
     // Method(OnSignSuccess):
-    private fun onSignSuccess() = startActivity(Intent(this, MainActivity::class.java))
+    private fun onLoginState(state: LoginActivityStates.LoginState) {
+        // Checking:
+        if (state.status) {
+            // Checking:
+            if ( // Writing(SharedPref):
+                manager.write(SPManager.ACCESS_TOKEN, state.token.access) &&
+                manager.write(SPManager.REFRESH_TOKEN, state.token.refresh)
+            ) startActivity(Intent(this, MainActivity::class.java))
+            else Log.e(TAG, "onLoginState: Failed to writing tokens into SPManager")
+        } else Log.e(TAG, "onSignSuccess: Failed with status of ${state.status} and state of $state")
+    }
 
     // Method(OnSignUp):
     private fun onSignUp(view: View?) = changeUI(1)
@@ -93,7 +117,7 @@ class LoginActivity : AppCompatActivity() {
             // Initializing:
             user = User(
                 // Fields:
-                userName = binding.UserName.text.toString(),
+                userName = binding.eMail.text.toString(),
                 password = binding.passwords.text.toString()
             )
         }
