@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import com.sakura.easyrent.control.adapters.ContractsAdapter
+import com.sakura.easyrent.control.adapters.ReceiptsAdapter
 import com.sakura.easyrent.control.managers.SPManager
 import com.sakura.easyrent.control.utils.APIUtils
 import com.sakura.easyrent.databinding.FragmentReceiptsBinding
@@ -27,7 +27,7 @@ class ReceiptsFragment : Fragment() {
     private val model: MainViewModel by lazy { ViewModelProvider(this)[MainViewModel::class.java] }
 
     // Fields(Adapters):
-    private lateinit var adapter: ContractsAdapter
+    private lateinit var adapter: ReceiptsAdapter
 
     // Fields(Managers):
     @Inject lateinit var manager: SPManager
@@ -58,10 +58,35 @@ class ReceiptsFragment : Fragment() {
     }
 
     // Method(Render)
-    private suspend fun render() {}
+    private suspend fun render() {
+        // Sending:
+        model.channel.send(
+            // Fields(Channel):
+            MainActivityIntentions.Contracts(
+                // Fields(Contracts):
+                APIUtils.generateBearerToken((manager.read(SPManager.ACCESS_TOKEN, "")) as String)
+            )
+        )
+        // Collecting:
+        model.states.collect {
+            // Checking:
+            when (it) {
+                // Developing:
+                is MainActivityStates.ContractsState -> contractsState(it)
+                is MainActivityStates.FailureState -> Log.e(HomeFragment.TAG, "render: ${it.message}", it.exception)
+            }
+        }
+    }
 
     // Method(ContractsState):
-    private fun contractsState(state: MainActivityStates.ContractsState) {}
+    private fun contractsState(state: MainActivityStates.ContractsState) {
+        // Initializing:
+        adapter = ReceiptsAdapter(requireContext(), state.contracts)
+        // Hiding(ProgressBar):
+        progressBar(false)
+        // Setting:
+        binding.receiptsRecyclerView.adapter = adapter
+    }
 
     // Method(ProgressBar):
     private fun progressBar(show: Boolean = true) {
