@@ -18,4 +18,8 @@ class APIRepository(private val api: API) : API {
     // Method(Contract):
     override suspend fun contract(contract: Contract): Response<Contract> = api.contract(contract)
     override suspend fun contract(token: String): Response<List<Contract>> = api.contract(token)
+
+    // Method(me):
+    override suspend fun me(user: User): Response<Contract> = api.me(user)
+    override suspend fun me(token: String): Response<List<User>> = api.me(token)
 }
