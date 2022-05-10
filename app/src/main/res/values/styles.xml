@@ -4,8 +4,8 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/Dark_Blue</item>
         <item name="colorPrimaryDark">@color/Dark_Blue</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:navigationBarColor">@color/Dark_Blue</item>
+        <item name="colorAccent">@color/Dark_Blue</item>
+        <item name="android:navigationBarColor">@color/white</item>
     </style>
 
     <style name="ReounderCorner">

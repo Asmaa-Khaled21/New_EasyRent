@@ -7,4 +7,5 @@
     <string name="email_warning">Please enter your email address</string>
     <string name="password_warning">Please enter your password</string>
     <string name="pass_length_warning">Your password must be at least 6 charters</string>
+    <string name="Text_Rent_Frequency"> Rent Frequency :%s</string>
 </resources>

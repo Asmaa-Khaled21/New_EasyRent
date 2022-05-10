@@ -5,6 +5,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.sakura.easyrent.R
 import com.sakura.easyrent.databinding.ContractItemViewBinding
 import com.sakura.easyrent.model.Contract
 import com.sakura.easyrent.ui.activitys.pay.PayActivity
@@ -32,6 +33,7 @@ class ContractsAdapter(
         holder.binding.apply {
             // Setting:
             contractHolderName.text = contract.contractHolderName
+            context.getString(R.string.Text_Rent_Frequency, contract.rentFrequency)
             dateFrom.text = contract.dateFrom
             dateTo.text = contract.dateTo
             rentCost.text = contract.rentCost.toString()

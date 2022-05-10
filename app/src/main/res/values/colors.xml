@@ -8,6 +8,9 @@
     <color name="Dark_Blue">#232F34</color>
     <color name="Light_Blue">#4A6572</color>
     <color name="Orange">#F9AA33</color>
+    <color name="Gray">#616161</color>
+    <color name="Strock_Color">#4E4A4A</color>
+    <color name="Gray_White">#E5E5E5</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="Background">#F9F9F9</color>
