@@ -19,14 +19,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:mbn_backgroundBottomColor="@color/white"
-        app:mbn_countBackgroundColor="@color/Orange"
+        app:mbn_backgroundBottomColor="@color/Dark_Blue"
+        app:mbn_countBackgroundColor="@color/Dark_Blue"
 
         app:mbn_countTextColor="#000"
 
-        app:mbn_defaultIconColor="@color/Orange"
+        app:mbn_defaultIconColor="@color/white"
         app:mbn_rippleColor="@color/Orange"
-        app:mbn_selectedIconColor="@color/Orange"
+        app:mbn_selectedIconColor="@color/white"
         app:mbn_shadowColor="#5000" />
 
 </RelativeLayout>
