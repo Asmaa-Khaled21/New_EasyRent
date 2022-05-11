@@ -43,17 +43,16 @@
         android:layout_marginStart="8dp"
         android:text="Welcome"
         android:textColor="@color/white"
-        android:textSize="20dp"
+        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@id/user"
         app:layout_constraintTop_toTopOf="@id/user" />
     <TextView
-        android:id="@+id/Name"
+        android:id="@+id/user_first_name_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="Asmaa ,"
         android:textColor="@color/white"
-        android:textSize="20dp"
+        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@id/Welcome"
         app:layout_constraintTop_toTopOf="@id/user" />
 
@@ -63,7 +62,7 @@
         android:layout_height="wrap_content"
         android:text="Verify your rents and payments."
         android:textColor="@color/white"
-        android:textSize="18dp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/Welcome"
         app:layout_constraintTop_toBottomOf="@id/Welcome" />
 

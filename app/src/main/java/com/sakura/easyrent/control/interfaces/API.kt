@@ -22,8 +22,6 @@ interface API {
     @POST("contracts") suspend fun contract(@Body contract: Contract): Response<Contract>
     @GET("contracts") suspend fun contract(@Header("Authorization") token: String): Response<List<Contract>>
 
-
-    // Method(Me Api):
-    @POST("users/profiles/me/") suspend fun me(@Body user: User): Response<Contract>
-    @GET("users/profiles/me/") suspend fun me(@Header("Authorization") token: String): Response<List<User>>
+    // Method(UerMetaData):
+    @GET("users/profiles/me/") suspend fun userMetaData(@Header("Authorization") token: String): Response<User>
 }

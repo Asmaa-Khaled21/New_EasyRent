@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object APIManager {
 
     // Fields:
-    const val BASE_URL: String = "https://guarded-scrubland-74784.herokuapp.com/"
+    private const val BASE_URL: String = "https://guarded-scrubland-74784.herokuapp.com/"
 
     // Method(Instance):
     fun instance(): API {

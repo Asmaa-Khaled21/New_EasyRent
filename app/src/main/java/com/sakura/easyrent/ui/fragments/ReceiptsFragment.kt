@@ -62,7 +62,7 @@ class ReceiptsFragment : Fragment() {
         // Sending:
         model.channel.send(
             // Fields(Channel):
-            MainActivityIntentions.Contracts(
+            MainActivityIntentions.ContractsIntention(
                 // Fields(Contracts):
                 APIUtils.generateBearerToken((manager.read(SPManager.ACCESS_TOKEN, "")) as String)
             )

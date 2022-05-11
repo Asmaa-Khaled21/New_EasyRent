@@ -88,7 +88,7 @@
                 android:padding="10dp"
                 >
                 <TextView
-                    android:id="@+id/fawrytText"
+                    android:id="@+id/fawry_text_view"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
@@ -108,7 +108,7 @@
                     android:drawablePadding="5dp"/>
 
                 <TextView
-                    android:id="@+id/creditText"
+                    android:id="@+id/credit_text_view"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"

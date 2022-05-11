@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sakura.easyrent.control.repositories.APIRepository
 import com.sakura.easyrent.model.Contract
+import com.sakura.easyrent.model.User
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.channels.Channel
@@ -22,7 +23,8 @@ class MainViewModel @Inject constructor(private val repository: APIRepository) :
     val channel: Channel<MainActivityIntentions> = Channel(Channel.UNLIMITED)
 
     // States:
-    private val _states: MutableSharedFlow<MainActivityStates> = MutableSharedFlow(1, onBufferOverflow = BufferOverflow.DROP_OLDEST)
+    private val _states: MutableSharedFlow<MainActivityStates> =
+        MutableSharedFlow(1, onBufferOverflow = BufferOverflow.DROP_OLDEST)
     val states: SharedFlow<MainActivityStates> get() = _states
 
     // Initializing:
@@ -61,7 +63,8 @@ class MainViewModel @Inject constructor(private val repository: APIRepository) :
                 // Checking:
                 when (intentions) {
                     // Developing:
-                    is MainActivityIntentions.Contracts -> onContracts(intentions)
+                    is MainActivityIntentions.UserMetaDataIntention -> onUserMetaData(intentions)
+                    is MainActivityIntentions.ContractsIntention -> onContracts(intentions)
                 }
             } catch (e: Exception) {
                 // Emitting:
@@ -70,14 +73,22 @@ class MainViewModel @Inject constructor(private val repository: APIRepository) :
         }
     }
 
+    // Method(onUserMetaData):
+    private suspend fun onUserMetaData(intention: MainActivityIntentions.UserMetaDataIntention) = request(
+        // Fields:
+        intention,
+        repository.userMetaData(intention.token)
+    )
+
     // Method(OnContracts):
-    private suspend fun onContracts(intention: MainActivityIntentions.Contracts) = request(
+    private suspend fun onContracts(intention: MainActivityIntentions.ContractsIntention) = request(
         // Fields:
         intention,
         repository.contract(intention.token)
     )
 
     // Method(Request):
+    @Suppress("UNCHECKED_CAST")
     private suspend fun <T> request(intention: MainActivityIntentions, response: Response<T>) {
         // Checking:
         if (response.isSuccessful && response.body() != null) {
@@ -86,7 +97,8 @@ class MainViewModel @Inject constructor(private val repository: APIRepository) :
             // Checking:
             when (intention) {
                 // Emitting:
-                is MainActivityIntentions.Contracts -> _states.emit(MainActivityStates.ContractsState(body as ArrayList<Contract>))
+                is MainActivityIntentions.UserMetaDataIntention -> _states.emit(MainActivityStates.UserMetaDataState(body as User))
+                is MainActivityIntentions.ContractsIntention -> _states.emit(MainActivityStates.ContractsState(body as ArrayList<Contract>))
             }
         } else _states.emit(MainActivityStates.FailureState(response.toString(), null))
     }
