@@ -5,6 +5,8 @@
       <map>
         <entry key="..\:/Easy_Rent-master/app/src/main/res/drawable-v24/switch_trcks_pay.xml" value="0.1385" />
         <entry key="..\:/Easy_Rent-master/app/src/main/res/drawable/android.xml" value="0.143" />
+        <entry key="..\:/Easy_Rent-master/app/src/main/res/drawable/ic_circle1.xml" value="0.1055" />
+        <entry key="..\:/Easy_Rent-master/app/src/main/res/drawable/ic_circle2.xml" value="0.1055" />
         <entry key="..\:/Easy_Rent-master/app/src/main/res/drawable/ic_home.xml" value="0.13" />
         <entry key="..\:/Easy_Rent-master/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/Easy_Rent-master/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1" />
@@ -15,6 +17,7 @@
         <entry key="..\:/Easy_Rent-master/app/src/main/res/layout/activity_splash.xml" value="0.18854166666666666" />
         <entry key="..\:/Easy_Rent-master/app/src/main/res/layout/contract_item_view.xml" value="0.25" />
         <entry key="..\:/Easy_Rent-master/app/src/main/res/layout/fragment_credit_card.xml" value="0.2" />
+        <entry key="..\:/Easy_Rent-master/app/src/main/res/layout/fragment_fawry.xml" value="0.18854166666666666" />
         <entry key="..\:/Easy_Rent-master/app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="..\:/Easy_Rent-master/app/src/main/res/layout/fragment_notification.xml" value="0.2" />
         <entry key="..\:/Easy_Rent-master/app/src/main/res/layout/fragment_receipts.xml" value="0.2" />

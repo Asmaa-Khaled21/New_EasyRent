@@ -62,55 +62,81 @@
         app:layout_constraintTop_toBottomOf="@id/line" />
     //////////////////////////////////////
 
+
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
         app:cardCornerRadius="25dp"
         app:cardElevation="10dp"
-        app:cardUseCompatPadding="true">
-
+        android:layout_gravity="center"
+        app:cardUseCompatPadding="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
 
             <LinearLayout
                 android:id="@+id/Linear_Pay"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/switch_tumbs_pay"
-                android:gravity="center"
                 android:orientation="horizontal"
-                android:weightSum="2">
-
-                <ImageView
+                android:gravity="center"
+                android:weightSum="2"
+                android:background="@drawable/switch_tumbs_pay"
+                android:padding="10dp"
+                >
+                <TextView
                     android:id="@+id/fawrytText"
-                    android:layout_width="fill_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
                     android:background="@drawable/switch_trcks_pay"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ic_fawry_select" />
+                    android:gravity="center"
+                    android:paddingStart="15dp"
+                    android:paddingTop="5dp"
+                    android:paddingEnd="15dp"
+                    android:paddingBottom="5dp"
+                    android:text="Fawry"
+                    android:textAlignment="center"
+                    android:textColor="@color/textColor"
+                    android:textSize="16sp"
+                    android:textStyle="bold|normal"
+                    android:drawableTop="@drawable/ic_fawry"
+                    android:drawablePadding="5dp"/>
 
-                <ImageView
+                <TextView
                     android:id="@+id/creditText"
-                    android:layout_width="fill_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ic_credit_no" />
+                    android:gravity="center"
+                    android:paddingStart="15dp"
+                    android:paddingTop="5dp"
+                    android:paddingEnd="15dp"
+                    android:paddingBottom="5dp"
+                    android:text="Credit Card"
+                    android:textAlignment="center"
+                    android:textColor="@color/Dark_Blue"
+                    android:textSize="16sp"
+                    android:textStyle="bold|normal"
+                    android:drawableTop="@drawable/ic_creditcard_blue"
+                    android:drawablePadding="5dp"
+                    />
 
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/fawryLayout"
+                android:background="@color/white"
+                android:padding="25dp"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:orientation="vertical"
-                android:padding="25dp">
-
+                >
                 <TextView
                     android:id="@+id/Phone_number"
                     android:layout_width="wrap_content"
@@ -118,88 +144,90 @@
                     android:text="Phone number"
                     android:textColor="@color/black"
                     android:textSize="17sp"
-                    android:textStyle="normal|bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textStyle="normal|bold"
+                    />
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
                     android:hint="010***89***"
+                    android:layout_margin="5dp"
+                    app:shapeAppearanceOverlay="@style/Button4"
+                    app:hintTextColor="#4E4A4A"
                     app:boxStrokeColor="#4E4A4A"
                     app:boxStrokeWidth="1dp"
-                    app:hintTextColor="#4E4A4A"
-                    app:shapeAppearanceOverlay="@style/Button4">
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:inputType="number"
                         android:id="@+id/eMail"
+                        android:ems="10"
+                        android:textSize="13sp"
+                        android:textColor="@color/black"
+                        android:textStyle="normal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:textColor="@color/black"
-                        android:textSize="13sp"
-                        android:textStyle="normal" />
+                        />
 
                 </com.google.android.material.textfield.TextInputLayout>
-
                 <TextView
                     android:id="@+id/How_payment_through_fawry"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
                     android:text="How payment through fawry"
                     android:textColor="@color/black"
                     android:textSize="17sp"
-                    android:textStyle="normal|bold" />
-
+                    android:layout_margin="5dp"
+                    android:textStyle="normal|bold"
+                    />
                 <TextView
                     android:id="@+id/Edit_How_payment_through_fawry"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    app:layout_constraintStart_toStartOf="@id/How_payment_through_fawry"
+                    app:layout_constraintTop_toBottomOf="@id/How_payment_through_fawry"
                     android:background="@drawable/edit_text"
-                    android:padding="10dp"
                     android:text="1- Go to the nearest fawry service provider and give 
 him the phone number
 2-The reservation should be confirmed automatilcally 
 within 10 mins , if otherwise , kindly contact us in phone
 number"
-                    app:layout_constraintStart_toStartOf="@id/How_payment_through_fawry"
-                    app:layout_constraintTop_toBottomOf="@id/How_payment_through_fawry" />
+                    android:layout_margin="5dp"
+                    android:padding="10dp"
+                    />
 
                 <TextView
                     android:id="@+id/Fawry_payment_receipt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
                     android:text="Fawry payment receipt"
                     android:textColor="@color/black"
                     android:textSize="17sp"
-                    android:textStyle="bold|normal"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/Edit_How_payment_through_fawry" />
+                    app:layout_constraintTop_toBottomOf="@id/Edit_How_payment_through_fawry"
+                    android:layout_margin="5dp"
+                    android:textStyle="bold|normal"
+                    />
 
                 <LinearLayout
                     android:id="@+id/payment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/Fawry_payment_receipt"
                     android:gravity="center"
                     android:padding="10dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/Fawry_payment_receipt">
-
+                    >
                     <ImageView
                         android:id="@+id/image_Upload_the_receipt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:src="@drawable/ic_upload_the_receipt"
                         android:layout_gravity="center"
-                        android:layout_marginEnd="10dp"
                         android:padding="10dp"
-                        android:src="@drawable/ic_upload_the_receipt" />
-
+                        android:layout_marginEnd="10dp"
+                        />
                     <TextView
                         android:id="@+id/Upload_the_receipt"
                         android:layout_width="wrap_content"
@@ -207,210 +235,210 @@ number"
                         android:text="Upload the receipt"
                         android:textColor="@color/black"
                         android:textSize="17sp"
-                        android:textStyle="normal|bold" />
+                        android:textStyle="normal|bold"
+                        />
                 </LinearLayout>
-
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="40dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="40dp"
-                    android:background="@color/Dark_Blue"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/payment"
                     android:text="Pay Now"
+                    android:background="@color/Dark_Blue"
                     android:textColor="@color/white"
                     android:textSize="20sp"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginEnd="40dp"
+                    android:layout_marginTop="10dp"
                     android:textStyle="normal|bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/payment" />
+                    />
 
 
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/creditLayout"
+                android:background="@color/white"
+                android:padding="25dp"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:orientation="vertical"
-                android:padding="25dp"
                 android:visibility="gone">
 
                 <TextView
                     android:id="@+id/Name_on_card"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingStart="5dp"
                     android:text="Name on card"
                     android:textColor="@color/black"
-                    android:textSize="20dp" />
-
+                    android:textSize="20dp"
+                    android:paddingStart="5dp"
+                    />
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
                     android:hint="Asmaa"
+                    android:layout_margin="5dp"
+                    app:shapeAppearanceOverlay="@style/Button4"
+                    app:hintTextColor="#4E4A4A"
                     app:boxStrokeColor="#4E4A4A"
                     app:boxStrokeWidth="1dp"
-                    app:hintTextColor="#4E4A4A"
-                    app:shapeAppearanceOverlay="@style/Button4">
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:inputType="textPersonName"
                         android:id="@+id/eMails"
+                        android:ems="10"
+                        android:textSize="13sp"
+                        android:textColor="@color/black"
+                        android:textStyle="normal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName"
-                        android:textColor="@color/black"
-                        android:textSize="13sp"
-                        android:textStyle="normal" />
+                        />
                 </com.google.android.material.textfield.TextInputLayout>
-
                 <TextView
                     android:id="@+id/Card_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingStart="5dp"
                     android:text="Card number"
                     android:textColor="@color/black"
                     android:textSize="17sp"
-                    android:textStyle="bold|normal" />
-
+                    android:paddingStart="5dp"
+                    android:textStyle="bold|normal"
+                    />
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
                     android:hint="5354 8253 **** ***"
+                    android:layout_margin="5dp"
+                    app:shapeAppearanceOverlay="@style/Button4"
+                    app:hintTextColor="#4E4A4A"
                     app:boxStrokeColor="#4E4A4A"
                     app:boxStrokeWidth="1dp"
-                    app:hintTextColor="#4E4A4A"
-                    app:shapeAppearanceOverlay="@style/Button4">
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:inputType="number"
                         android:id="@+id/Card"
+                        android:ems="10"
+                        android:textSize="13sp"
+                        android:textColor="@color/black"
+                        android:textStyle="normal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:textColor="@color/black"
-                        android:textSize="13sp"
-                        android:textStyle="normal" />
+                        />
 
                 </com.google.android.material.textfield.TextInputLayout>
-
                 <LinearLayout
                     android:id="@+id/Text_View"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="5dp"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:weightSum="2"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/Edit_Card_number"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:weightSum="2"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
 
                     >
-
                     <TextView
                         android:id="@+id/Expiry_date"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="5dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/switch_trcks_pay"
-                        android:backgroundTint="@color/white"
-                        android:padding="5dp"
                         android:text="Expiry date"
                         android:textColor="@color/black"
                         android:textSize="17sp"
-                        android:textStyle="bold|normal" />
-
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:padding="5dp"
+                        android:textStyle="bold|normal"
+                        android:background="@drawable/switch_trcks_pay"
+                        android:backgroundTint="@color/white"
+                        android:layout_marginStart="5dp"
+                        />
                     <TextView
                         android:id="@+id/CVC"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="8dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/switch_trcks_pay"
-                        android:backgroundTint="@color/white"
-                        android:padding="5dp"
                         android:text="CVC"
                         android:textColor="@color/black"
                         android:textSize="20sp"
-                        android:textStyle="bold|normal" />
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:padding="5dp"
+                        android:textStyle="bold|normal"
+                        android:background="@drawable/switch_trcks_pay"
+                        android:backgroundTint="@color/white"
+                        android:layout_marginStart="8dp"
+                        />
 
                 </LinearLayout>
-
                 <LinearLayout
                     android:id="@+id/Edit_View"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="5dp"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:weightSum="2"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/Edit_Card_number"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:weightSum="2"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
 
                     >
-
                     <com.google.android.material.textfield.TextInputLayout
+                        android:hint="20/12"
+                        android:layout_margin="5dp"
+                        app:shapeAppearanceOverlay="@style/Button4"
+                        app:hintTextColor="#4E4A4A"
+                        app:boxStrokeColor="#4E4A4A"
+                        app:boxStrokeWidth="1dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:layout_weight="1"
-                        android:hint="20/12"
-                        app:boxStrokeColor="#4E4A4A"
-                        app:boxStrokeWidth="1dp"
-                        app:hintTextColor="#4E4A4A"
-                        app:shapeAppearanceOverlay="@style/Button4">
+                        android:layout_weight="1">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:inputType="number"
                             android:id="@+id/Edit_Expiry_date"
+                            android:ems="10"
+                            android:textSize="13sp"
+                            android:textColor="@color/black"
+                            android:textStyle="normal"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:inputType="number"
-                            android:textColor="@color/black"
-                            android:textSize="13sp"
-                            android:textStyle="normal" />
+                            />
 
                     </com.google.android.material.textfield.TextInputLayout>
-
                     <com.google.android.material.textfield.TextInputLayout
+                        android:hint="***"
+                        android:layout_margin="5dp"
+                        app:shapeAppearanceOverlay="@style/Button4"
+                        app:hintTextColor="#4E4A4A"
+                        app:boxStrokeColor="#4E4A4A"
+                        app:boxStrokeWidth="1dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:layout_weight="1"
-                        android:hint="***"
-                        app:boxStrokeColor="#4E4A4A"
-                        app:boxStrokeWidth="1dp"
-                        app:hintTextColor="#4E4A4A"
-                        app:shapeAppearanceOverlay="@style/Button4">
-
+                        android:layout_weight="1">
                         <com.google.android.material.textfield.TextInputEditText
+                            android:inputType="number"
                             android:id="@+id/Edit_CVC"
+                            android:ems="10"
+                            android:textSize="13sp"
+                            android:textColor="@color/black"
+                            android:textStyle="normal"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:inputType="number"
-                            android:textColor="@color/black"
-                            android:textSize="13sp"
-                            android:textStyle="normal" />
+                            />
                     </com.google.android.material.textfield.TextInputLayout>
 
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
 </LinearLayout>
