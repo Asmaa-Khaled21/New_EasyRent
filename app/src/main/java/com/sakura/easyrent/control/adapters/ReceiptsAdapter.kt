@@ -31,7 +31,6 @@ class ReceiptsAdapter(
         holder.binding.apply {
             // Setting:
             contractHolderName.text = receipt.contractHolderName
-            dateFrom.text = receipt.dateFrom
             dateTo.text = receipt.dateTo
             rentCost.text = receipt.rentCost.toString()
             rentFrequency.text = receipt.rentFrequency

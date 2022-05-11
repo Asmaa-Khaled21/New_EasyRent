@@ -1,104 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView
+<androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp">
+    android:layout_margin="20dp"
+    android:padding="20dp"
+    app:cardCornerRadius="20dp">
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        >
         <TextView
             android:id="@+id/contract_holder_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textColor="@color/black"
+            android:textColor="@color/Dark_Blue"
             android:textSize="20sp"
             android:textStyle="normal|bold"
+            android:text="contract holder name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:id="@+id/line1"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/Text_rent_frequency"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="fill"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/Dark_Blue"
+            android:textSize="12sp"
             app:layout_constraintTop_toBottomOf="@id/contract_holder_name"
-            android:padding="10dp">
-
-            <TextView
-                android:id="@+id/unit"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:layout_weight=".5"
-                android:layout_marginStart="5dp"
-                android:drawableStart="@drawable/ic_house_number"
-                android:drawablePadding="10dp"
-                />
-
-            <TextView
-                android:id="@+id/rent_frequency"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:layout_weight=".5"
-                android:drawablePadding="10dp"
-                android:layout_marginStart="5dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/line2"
-            android:layout_width="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="10dp"
+            android:text="Rent Frequency : "
+            />
+        <TextView
+            android:id="@+id/rent_frequency"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@+id/line1"
-            app:layout_constraintEnd_toEndOf="@id/line1"
-            app:layout_constraintTop_toBottomOf="@+id/line1"
-            android:padding="10dp">
-            <TextView
-                android:id="@+id/date_from"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:layout_weight=".5"
-                android:layout_marginStart="5dp"
-                android:drawableStart="@drawable/ic_clock"
-                android:drawablePadding="10dp"
-                />
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:autoSizeTextType="uniform"
+            app:layout_constraintTop_toBottomOf="@id/contract_holder_name"
+            app:layout_constraintStart_toEndOf="@id/Text_rent_frequency"
+            android:layout_marginTop="10dp"
+            android:text="Mohamed"
+            />
 
-            <TextView
-                android:id="@+id/date_to"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:layout_weight=".5"
-                android:layout_marginStart="5dp"
-                android:drawableStart="@drawable/ic_clock"
-                android:drawablePadding="10dp"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
+<!--        <TextView-->
+<!--            android:id="@+id/Text_date_from"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textColor="@color/black"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/rent_frequency"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:text="Contract starting date : "-->
+<!--            android:textSize="12dp"-->
+<!--            />-->
+<!--        <TextView-->
+<!--            android:id="@+id/date_from"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textColor="@color/black"-->
+<!--            app:layout_constraintStart_toEndOf="@id/Text_date_from"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/rent_frequency"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:text="23/6/2020"-->
+<!--            android:textSize="12dp"-->
+<!--            />-->
+        <TextView
+            android:id="@+id/Text_date_to"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/line2"
-            app:layout_constraintEnd_toEndOf="@id/line2"
-            app:layout_constraintTop_toBottomOf="@id/line2"
-            android:padding="10dp">
+            android:textColor="@color/black"
+            android:text="Payment date : "
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rent_frequency"
+            android:textSize="12dp"/>
+        <TextView
+            android:id="@+id/date_to"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="30/6/2020"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toEndOf="@id/Text_date_to"
+            app:layout_constraintTop_toBottomOf="@id/rent_frequency"
+            android:textSize="12dp"/>
+        <TextView
+            android:id="@+id/Text_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/date_to"
+            android:text="unit : "
+            android:layout_marginTop="10dp"
+            android:textSize="12dp"
+            />
+        <TextView
+            android:id="@+id/unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/Text_unit"
+            app:layout_constraintTop_toBottomOf="@id/date_to"
+            android:text="unit"
+            android:layout_marginTop="10dp"
+            android:textSize="12dp"
+            />
 
-            <TextView
-                android:id="@+id/rent_cost"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:layout_weight=".5" />
+        <TextView
+            android:id="@+id/rent_cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:text="5000"
+            app:layout_constraintTop_toBottomOf="@id/unit"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="10dp"
+            />
+        <TextView
+            android:id="@+id/Text_rent_cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/Light_Blue"
+            android:textSize="14sp"
+            android:text="Pounds Paid"
+            app:layout_constraintTop_toTopOf="@id/rent_cost"
+            app:layout_constraintBottom_toBottomOf="@id/rent_cost"
+            app:layout_constraintStart_toEndOf="@id/rent_cost"
+            android:layout_marginStart="5dp"
+            />
 
-        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
-</com.google.android.material.card.MaterialCardView>
+</androidx.cardview.widget.CardView>
