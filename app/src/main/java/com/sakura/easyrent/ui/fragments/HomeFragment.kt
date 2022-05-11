@@ -68,6 +68,7 @@ class HomeFragment : Fragment() {
                 // Fields(Contracts):
                 APIUtils.generateBearerToken((manager.read(SPManager.ACCESS_TOKEN, "")) as String)
             )
+
         )
         // Collecting:
         model.states.collect {
@@ -95,6 +96,7 @@ class HomeFragment : Fragment() {
         // Visibility:
         binding.contractsProgressBar.visibility = if (show) View.VISIBLE else View.GONE
         binding.contractsRecyclerView.visibility = if (show) View.GONE else View.VISIBLE
+        binding.Name.visibility = if (show) View.GONE else View.VISIBLE
     }
 
     // Method(OnDestroyView):

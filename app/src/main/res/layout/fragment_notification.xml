@@ -8,15 +8,46 @@
     tools:context=".ui.fragments.NotificationFragment">
 
 
-
-   <androidx.recyclerview.widget.RecyclerView
-       android:id="@+id/RecycleView_Notification"
+   <ImageView
+       android:id="@+id/Notification1"
        android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-       android:orientation="vertical"
+       android:layout_height="100dp"
+       android:src="@drawable/notification1"
+       android:layout_margin="10dp"
        app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintTop_toTopOf="parent"
-       tools:listitem="@layout/notification_item_view" />
+       app:layout_constraintEnd_toEndOf="parent"
+      />
+   <ImageView
+       android:id="@+id/Notification2"
+       android:layout_width="match_parent"
+       android:layout_height="100dp"
+       android:src="@drawable/notification2"
+       android:layout_margin="10dp"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@id/Notification1"
+       app:layout_constraintEnd_toEndOf="parent"
+      />
+
+   <ImageView
+       android:id="@+id/Notification3"
+       android:layout_width="match_parent"
+       android:layout_height="100dp"
+       android:src="@drawable/notification3"
+       android:layout_margin="10dp"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@id/Notification2"
+       app:layout_constraintEnd_toEndOf="parent"
+       />
+
+<!--   <androidx.recyclerview.widget.RecyclerView-->
+<!--       android:id="@+id/RecycleView_Notification"-->
+<!--       android:layout_width="match_parent"-->
+<!--       android:layout_height="wrap_content"-->
+<!--       app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--       android:orientation="vertical"-->
+<!--       app:layout_constraintStart_toStartOf="parent"-->
+<!--       app:layout_constraintEnd_toEndOf="parent"-->
+<!--       app:layout_constraintTop_toTopOf="parent"-->
+<!--       tools:listitem="@layout/notification_item_view" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>
