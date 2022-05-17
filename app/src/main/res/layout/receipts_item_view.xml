@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/Dark_Blue"
-            android:textSize="12sp"
+            android:textSize="16sp"
             app:layout_constraintTop_toBottomOf="@id/contract_holder_name"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="10dp"
@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:textSize="12sp"
+            android:textSize="16sp"
             android:autoSizeTextType="uniform"
             app:layout_constraintTop_toBottomOf="@id/contract_holder_name"
             app:layout_constraintStart_toEndOf="@id/Text_rent_frequency"
@@ -82,7 +82,7 @@
             android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rent_frequency"
-            android:textSize="12dp"/>
+            android:textSize="16dp"/>
         <TextView
             android:id="@+id/date_to"
             android:layout_width="wrap_content"
@@ -92,7 +92,7 @@
             android:layout_marginTop="10dp"
             app:layout_constraintStart_toEndOf="@id/Text_date_to"
             app:layout_constraintTop_toBottomOf="@id/rent_frequency"
-            android:textSize="12dp"/>
+            android:textSize="16dp"/>
         <TextView
             android:id="@+id/Text_unit"
             android:layout_width="wrap_content"
@@ -102,7 +102,7 @@
             app:layout_constraintTop_toBottomOf="@id/date_to"
             android:text="unit : "
             android:layout_marginTop="10dp"
-            android:textSize="12dp"
+            android:textSize="16dp"
             />
         <TextView
             android:id="@+id/unit"
@@ -113,7 +113,7 @@
             app:layout_constraintTop_toBottomOf="@id/date_to"
             android:text="unit"
             android:layout_marginTop="10dp"
-            android:textSize="12dp"
+            android:textSize="16dp"
             />
 
         <TextView
@@ -132,7 +132,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/Light_Blue"
-            android:textSize="14sp"
+            android:textSize="16sp"
             android:text="Pounds Paid"
             app:layout_constraintTop_toTopOf="@id/rent_cost"
             app:layout_constraintBottom_toBottomOf="@id/rent_cost"

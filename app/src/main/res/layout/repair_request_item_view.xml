@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/Dark_Blue"
-            android:textSize="12sp"
+            android:textSize="16sp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="10dp"
@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:textSize="12sp"
+            android:textSize="16sp"
             android:autoSizeTextType="uniform"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toEndOf="@id/Text_Details"
@@ -44,7 +44,7 @@
             android:layout_marginTop="10dp"
             android:text="Date : "
             android:textColor="@color/black"
-            android:textSize="12dp"
+            android:textSize="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/Text_Details" />
         <TextView
@@ -56,7 +56,7 @@
             android:layout_marginTop="10dp"
             app:layout_constraintStart_toEndOf="@id/Text_Date"
             app:layout_constraintTop_toBottomOf="@id/Details"
-            android:textSize="12dp"/>
+            android:textSize="16dp"/>
         <TextView
             android:id="@+id/Text_Status"
             android:layout_width="wrap_content"
@@ -66,7 +66,7 @@
             app:layout_constraintTop_toBottomOf="@id/Text_Date"
             android:text="Status : "
             android:layout_marginTop="10dp"
-            android:textSize="12dp"
+            android:textSize="16dp"
             />
         <TextView
             android:id="@+id/Status"
@@ -77,7 +77,7 @@
             app:layout_constraintTop_toBottomOf="@id/Date"
             android:text="Status"
             android:layout_marginTop="10dp"
-            android:textSize="12dp"
+            android:textSize="16dp"
             />
         <TextView
             android:id="@+id/Text_Unit"
@@ -88,7 +88,7 @@
             app:layout_constraintTop_toBottomOf="@id/Text_Status"
             android:text="Unit  : "
             android:layout_marginTop="10dp"
-            android:textSize="12dp"
+            android:textSize="16dp"
             />
         <TextView
             android:id="@+id/Unit"
@@ -99,7 +99,7 @@
             app:layout_constraintTop_toBottomOf="@id/Status"
             android:text="Unit"
             android:layout_marginTop="10dp"
-            android:textSize="12dp"
+            android:textSize="16dp"
             />
 
         <TextView
@@ -111,7 +111,7 @@
             app:layout_constraintTop_toBottomOf="@id/Text_Unit"
             android:text="Notes  : "
             android:layout_marginTop="10dp"
-            android:textSize="12dp"
+            android:textSize="16dp"
             />
         <TextView
             android:id="@+id/Notes"
@@ -122,7 +122,7 @@
             app:layout_constraintTop_toBottomOf="@id/Unit"
             android:text="Notes"
             android:layout_marginTop="10dp"
-            android:textSize="12dp"
+            android:textSize="16dp"
             />
 
 

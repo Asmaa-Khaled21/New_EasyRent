@@ -25,7 +25,6 @@ class ContractsAdapter(
         // Returning:
         return ContractsViewHolder(binding)
     }
-
     override fun onBindViewHolder(holder: ContractsViewHolder, position: Int) {
         // Initializing:
         val contract = contracts[position]
