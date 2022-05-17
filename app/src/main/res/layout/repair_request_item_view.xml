@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="15dp"
+    android:padding="20dp"
+    app:cardCornerRadius="20dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        >
+        <TextView
+            android:id="@+id/Text_Details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/Dark_Blue"
+            android:textSize="12sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="10dp"
+            android:text="Details : "
+            />
+        <TextView
+            android:id="@+id/Details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:autoSizeTextType="uniform"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/Text_Details"
+            android:layout_marginTop="10dp"
+            android:text="Details"
+            />
+  <TextView
+            android:id="@+id/Text_Date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Date : "
+            android:textColor="@color/black"
+            android:textSize="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/Text_Details" />
+        <TextView
+            android:id="@+id/Date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="30/6/2020"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toEndOf="@id/Text_Date"
+            app:layout_constraintTop_toBottomOf="@id/Details"
+            android:textSize="12dp"/>
+        <TextView
+            android:id="@+id/Text_Status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/Text_Date"
+            android:text="Status : "
+            android:layout_marginTop="10dp"
+            android:textSize="12dp"
+            />
+        <TextView
+            android:id="@+id/Status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/Text_Status"
+            app:layout_constraintTop_toBottomOf="@id/Date"
+            android:text="Status"
+            android:layout_marginTop="10dp"
+            android:textSize="12dp"
+            />
+        <TextView
+            android:id="@+id/Text_Unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/Text_Status"
+            android:text="Unit  : "
+            android:layout_marginTop="10dp"
+            android:textSize="12dp"
+            />
+        <TextView
+            android:id="@+id/Unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/Text_Status"
+            app:layout_constraintTop_toBottomOf="@id/Status"
+            android:text="Unit"
+            android:layout_marginTop="10dp"
+            android:textSize="12dp"
+            />
+
+        <TextView
+            android:id="@+id/Text_Notes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/Text_Unit"
+            android:text="Notes  : "
+            android:layout_marginTop="10dp"
+            android:textSize="12dp"
+            />
+        <TextView
+            android:id="@+id/Notes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/Text_Notes"
+            app:layout_constraintTop_toBottomOf="@id/Unit"
+            android:text="Notes"
+            android:layout_marginTop="10dp"
+            android:textSize="12dp"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

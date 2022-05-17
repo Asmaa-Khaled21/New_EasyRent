@@ -5,13 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
-import com.sakura.easyrent.ui.fragments.HomeFragment
-import com.sakura.easyrent.ui.fragments.NotificationFragment
-import com.sakura.easyrent.ui.fragments.ReceiptsFragment
-import com.sakura.easyrent.ui.fragments.SettingsFragment
-import com.sakura.easyrent.R
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
+import com.sakura.easyrent.R
 import com.sakura.easyrent.databinding.ActivityMainBinding
+import com.sakura.easyrent.ui.fragments.HomeFragment
+import com.sakura.easyrent.ui.fragments.ReceiptsFragment
+import com.sakura.easyrent.ui.fragments.RepairRequestFragment
+import com.sakura.easyrent.ui.fragments.SettingsFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
             // Replacing:
             0 -> replaceFragment(HomeFragment())
             1 -> replaceFragment(ReceiptsFragment())
-            2 -> replaceFragment(NotificationFragment())
+            2 -> replaceFragment(RepairRequestFragment())
             3 -> replaceFragment(SettingsFragment())
             // Else:
             else -> replaceFragment(HomeFragment())

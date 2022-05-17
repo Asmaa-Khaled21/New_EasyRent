@@ -2,6 +2,7 @@ package com.sakura.easyrent.control.interfaces
 
 import com.sakura.easyrent.model.AccessToken
 import com.sakura.easyrent.model.Contract
+import com.sakura.easyrent.model.RepairRequest
 import com.sakura.easyrent.model.User
 import retrofit2.Response
 import retrofit2.http.Body
@@ -24,4 +25,9 @@ interface API {
 
     // Method(UerMetaData):
     @GET("users/profiles/me/") suspend fun userMetaData(@Header("Authorization") token: String): Response<User>
+
+
+    // Method(RepairRequest):
+    @POST("repairRequests") suspend fun repairRequest(@Body repairRequest : RepairRequest ): Response<RepairRequest>
+    @GET("repairRequests") suspend fun repairRequest(@Header("Authorization") token: String): Response<List<RepairRequest>>
 }

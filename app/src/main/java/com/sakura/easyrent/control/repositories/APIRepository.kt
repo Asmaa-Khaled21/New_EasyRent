@@ -3,6 +3,7 @@ package com.sakura.easyrent.control.repositories
 import com.sakura.easyrent.control.interfaces.API
 import com.sakura.easyrent.model.AccessToken
 import com.sakura.easyrent.model.Contract
+import com.sakura.easyrent.model.RepairRequest
 import com.sakura.easyrent.model.User
 import retrofit2.Response
 
@@ -21,4 +22,9 @@ class APIRepository(private val api: API) : API {
 
     // Method(UserMetaData):
     override suspend fun userMetaData(token: String): Response<User> = api.userMetaData(token)
+
+    // Method(RepairRequest):
+    override suspend fun repairRequest(repairRequest: RepairRequest): Response<RepairRequest> = api.repairRequest(repairRequest)
+    override suspend fun repairRequest(token: String): Response<List<RepairRequest>> = api.repairRequest(token)
+
 }
