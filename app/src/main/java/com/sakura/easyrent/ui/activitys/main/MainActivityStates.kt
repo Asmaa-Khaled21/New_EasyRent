@@ -1,6 +1,7 @@
 package com.sakura.easyrent.ui.activitys.main
 
 import com.sakura.easyrent.model.Contract
+import com.sakura.easyrent.model.RepairRequest
 import com.sakura.easyrent.model.User
 
 // Class(MainActivityStates):
@@ -11,6 +12,9 @@ sealed class MainActivityStates {
 
     // State(ContractsState)
     data class ContractsState(val contracts: ArrayList<Contract>) : MainActivityStates()
+
+    // State(RepairRequests):
+    data class RepairRequests(val requests: ArrayList<RepairRequest>) : MainActivityStates()
 
     // State(FailureState):
     data class FailureState(val message: String, val exception: Exception?) : MainActivityStates()

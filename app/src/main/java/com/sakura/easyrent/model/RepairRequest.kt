@@ -1,22 +1,25 @@
 package com.sakura.easyrent.model
-import android.widget.ImageButton
-import android.widget.Spinner
+
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class RepairRequest (
+data class RepairRequest(
+    @ColumnInfo
+    var details: String = "",
+    @ColumnInfo
+    var date: String = "",
+    @ColumnInfo
+    var unit: Long = 0,
+    @ColumnInfo
+    var notes: String = "",
+    @ColumnInfo
+    var status: String = StatusTypes.PENDING.name.lowercase(),
     @PrimaryKey(autoGenerate = true)
-    val id:Int?= null,
-    @ColumnInfo
-    var details:String? =null,
-    @ColumnInfo
-    var Date: ImageButton? = null,
-    @ColumnInfo
-    var Status: Spinner?=null,
-    @ColumnInfo
-    var Unit: Spinner?=null,
-    @ColumnInfo
-    var Notes: String?=null,
-)
+    val id: Int = 0
+) {
+
+    // Status(Types):
+    enum class StatusTypes { CANCELLED, CLOSED, PENDING }
+}

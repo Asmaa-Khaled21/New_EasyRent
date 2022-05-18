@@ -30,10 +30,10 @@ class RepairRequestAdapter(
         holder.binding.apply {
             // Setting:
             Details.text = repairRequest.details
-            Date.text = repairRequest.Date.toString()
-            Status.text =repairRequest.Status.toString()
-            Unit.text = repairRequest.Unit.toString()
-            Notes.text =repairRequest.Notes
+            Date.text = repairRequest.date
+            Status.text =repairRequest.status
+            Unit.text = repairRequest.unit.toString()
+            Notes.text =repairRequest.notes
         }
     }
 

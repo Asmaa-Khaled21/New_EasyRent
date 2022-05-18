@@ -24,7 +24,7 @@ class APIRepository(private val api: API) : API {
     override suspend fun userMetaData(token: String): Response<User> = api.userMetaData(token)
 
     // Method(RepairRequest):
-    override suspend fun repairRequest(repairRequest: RepairRequest): Response<RepairRequest> = api.repairRequest(repairRequest)
+    override suspend fun repairRequest(token: String, repairRequest: RepairRequest): Response<RepairRequest> = api.repairRequest(token, repairRequest)
     override suspend fun repairRequest(token: String): Response<List<RepairRequest>> = api.repairRequest(token)
 
 }

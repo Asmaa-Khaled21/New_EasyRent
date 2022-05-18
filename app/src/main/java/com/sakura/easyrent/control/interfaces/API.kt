@@ -28,6 +28,11 @@ interface API {
 
 
     // Method(RepairRequest):
-    @POST("repairRequests") suspend fun repairRequest(@Body repairRequest : RepairRequest ): Response<RepairRequest>
+    @POST("repairRequests") suspend fun repairRequest(
+        // Fields:
+        @Header("Authorization") token: String,
+        @Body repairRequest: RepairRequest
+    ): Response<RepairRequest>
+
     @GET("repairRequests") suspend fun repairRequest(@Header("Authorization") token: String): Response<List<RepairRequest>>
 }

@@ -98,6 +98,10 @@ class HomeFragment : Fragment() {
     private fun contractsState(state: MainActivityStates.ContractsState) {
         // Initializing:
         adapter = ContractsAdapter(requireContext(), state.contracts)
+        // Clearing:
+        MainViewModel.staticUnits.clear()
+        // Adding:
+        state.contracts.forEach { MainViewModel.staticUnits.add(it.unit) }
         // Hiding(ProgressBar):
         progressBar(false)
         // Setting:

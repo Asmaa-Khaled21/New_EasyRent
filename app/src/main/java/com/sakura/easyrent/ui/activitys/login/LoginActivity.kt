@@ -85,8 +85,12 @@ class LoginActivity : AppCompatActivity() {
             if ( // Writing(SharedPref):
                 manager.write(SPManager.ACCESS_TOKEN, state.token.access) &&
                 manager.write(SPManager.REFRESH_TOKEN, state.token.refresh)
-            ) startActivity(Intent(this, MainActivity::class.java))
-            else Log.e(TAG, "onLoginState: Failed to writing tokens into SPManager")
+            ) {
+                // Logging:
+                Log.d(TAG, "onLoginState: ${state.token.access}")
+                // Starting:
+                startActivity(Intent(this, MainActivity::class.java))
+            } else Log.e(TAG, "onLoginState: Failed to writing tokens into SPManager")
         } else Log.e(TAG, "onSignSuccess: Failed with status of ${state.status} and state of $state")
     }
 

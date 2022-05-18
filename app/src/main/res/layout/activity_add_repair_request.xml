@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -16,120 +15,128 @@
         android:orientation="vertical"
         android:padding="25dp"
         android:visibility="visible"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        >
+        app:layout_constraintTop_toTopOf="parent">
+
         <TextView
             android:id="@+id/Details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add Details"
             android:layout_marginTop="15dp"
-            android:textSize="17sp"
+            android:text="Add Details"
             android:textColor="@color/Dark_Blue"
-            />
+            android:textSize="17sp" />
+
         <EditText
             android:id="@+id/edit_details"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Details"
             android:inputType="textMultiLine"
             android:maxLines="5"
-            android:textColorHighlight="@color/Orange"
-            android:hint="Details"
             android:textColor="@color/Dark_Blue"
-            />
+            android:textColorHighlight="@color/Orange" />
+
         <TextView
             android:id="@+id/Date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:text="Date"
             android:textColor="@color/Dark_Blue"
-            android:layout_marginTop="15dp"
-            android:textSize="17sp"
-            />
+            android:textSize="17sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
+
             <TextView
                 android:id="@+id/Edit_Date"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight=".8"
+                android:gravity="start"
+                android:hint="30/10/2022"
                 android:inputType="textMultiLine"
                 android:maxLines="5"
-                android:textColorHighlight="@color/Orange"
-                android:hint="30/10/2022"
-                android:layout_weight=".8"
-                android:layout_gravity="center"
                 android:padding="10dp"
-                android:gravity="start"
                 android:textColor="@color/Dark_Blue"
-                />
+                android:textColorHighlight="@color/Orange" />
+
             <ImageButton
+                android:id="@+id/calendar_image_view"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:gravity="end"
                 android:layout_weight=".2"
-                android:src="@drawable/ic_day"
                 android:background="@color/white"
-                />
+                android:gravity="end"
+                android:src="@drawable/ic_day" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/Status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:text="Status"
             android:textColor="@color/Dark_Blue"
-            android:layout_marginTop="15dp"
-            android:textSize="17sp"
-            />
+            android:textSize="17sp" />
+
         <Spinner
             android:id="@+id/spinner_status"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:autofillHints="statues"
-           />
+            android:autofillHints="statues" />
+
         <TextView
             android:id="@+id/Units"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:text="Units"
             android:textColor="@color/Dark_Blue"
-            android:layout_marginTop="15dp"
-            android:textSize="17sp"
-            />
+            android:textSize="17sp" />
+
         <Spinner
             android:id="@+id/spinner_Units"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:autofillHints="statues"
-            />
+            android:autofillHints="statues" />
 
         <TextView
             android:id="@+id/Notes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Notes"
             android:layout_marginTop="15dp"
-            android:textSize="17sp"
+            android:text="Notes"
             android:textColor="@color/Dark_Blue"
-            />
+            android:textSize="17sp" />
+
         <EditText
             android:id="@+id/ADD_NOTES"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="NOtes"
             android:inputType="textMultiLine"
             android:maxLines="5"
-            android:textColorHighlight="@color/Orange"
-            android:hint="NOtes"
             android:textColor="@color/Dark_Blue"
-            />
+            android:textColorHighlight="@color/Orange" />
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/add_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:padding="16dp"
+        android:text="ADD"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -26,7 +26,7 @@ class LoginViewModel @Inject constructor(private val repository: APIRepository) 
         MutableSharedFlow(1, onBufferOverflow = BufferOverflow.DROP_OLDEST)
     val states: SharedFlow<LoginActivityStates> get() = _states
 
-    // Initializing:
+    // Initializing(Class):
     init {
         // Processing:
         intentionsProcessing()

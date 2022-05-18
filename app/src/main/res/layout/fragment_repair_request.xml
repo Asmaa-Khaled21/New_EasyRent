@@ -40,8 +40,9 @@
             android:clickable="true"
             android:src="@drawable/ic_baseline_add_24"
             android:layout_gravity="bottom|end"
-            android:layout_margin="50dp"
-            android:backgroundTint="@color/Orange"/>
+            android:layout_margin="16dp"
+            android:backgroundTint="@color/Orange"
+            android:focusable="true" />
     </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
