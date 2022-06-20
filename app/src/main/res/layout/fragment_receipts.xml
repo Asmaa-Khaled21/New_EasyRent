@@ -8,14 +8,31 @@
     android:background="@color/white"
     tools:context=".ui.fragments.ReceiptsFragment"
     >
-
+    <TextView
+        android:id="@+id/textReceipts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:text="Receipts"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:background="@drawable/rectangle_6"
+        android:textColor="@color/white"
+        android:padding="10dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
     <FrameLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/textReceipts">
+
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/receipts_recycler_view"
@@ -24,7 +41,9 @@
             android:orientation="vertical"
             android:visibility="gone"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/receipts_item_view" />
+            tools:listitem="@layout/receipts_item_view"
+            android:layout_marginTop="10dp"
+            />
 
         <ProgressBar
             android:id="@+id/receipts_progress_bar"
