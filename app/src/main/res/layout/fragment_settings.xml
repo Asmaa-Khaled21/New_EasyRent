@@ -27,25 +27,27 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/profile_image_card_view"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginTop="110dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="25dp"
         android:elevation="8dp"
         app:cardCornerRadius="8dp"
         app:cardElevation="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         >
+
         <ImageView
             android:id="@+id/profile_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="fitCenter"
+            android:scaleType="fitXY"
+            android:src="@drawable/mancircle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="ContentDescription"
-            tools:src="@tools:sample/avatars"
+
             />
 
     </com.google.android.material.card.MaterialCardView>
@@ -57,7 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginEnd="16dp"
-        android:text="Asmaa"
+        android:text="Ahmed Atta"
         android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="normal|bold"

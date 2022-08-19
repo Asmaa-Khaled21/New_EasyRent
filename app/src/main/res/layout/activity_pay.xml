@@ -29,7 +29,7 @@
             android:layout_weight=".7"
             android:drawableStart="@drawable/ic_house_number"
             android:drawablePadding="10dp"
-            android:text="House Number"
+            android:text="Unit"
             android:textColor="@color/black"
             android:textSize="17sp" />
 
